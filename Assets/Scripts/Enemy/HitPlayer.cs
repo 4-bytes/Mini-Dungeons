@@ -19,26 +19,25 @@ public class HitPlayer : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) // Triggers when the player touches the object
+    private void OnTriggerEnter2D(Collider2D collider) // Triggers when the player touches the object
     {
-        if (gameObject.tag == "Enemy" && collision.tag == "Player") // Checks if the collision was with an enemy and player
+        if (gameObject.tag == "Enemy" && collider.tag == "Player") // Checks if the collision was with an enemy and player
         {
             PlayerHealthController.playerHealth.hitPlayer();
         }
-        else if (collision.tag == "Player" && (bodySprite.sprite.name == "spikes_1") || (bodySprite.sprite.name == "spikes_2") || (bodySprite.sprite.name == "spikes_3")) // If the collision was with the player, then hurt them
+        else if (gameObject.tag == "Enemy" && collider.tag == "Player" && ((bodySprite.sprite.name == "spikes_1") || (bodySprite.sprite.name == "spikes_2") || (bodySprite.sprite.name == "spikes_3"))) // If the collision was with the player, then hurt them
         {
             PlayerHealthController.playerHealth.hitPlayer();
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision) // Triggers when the player stays in collision with object
+    private void OnTriggerStay2D(Collider2D collider) // Triggers when the player stays in collision with object
     {
-        if (gameObject.tag == "Enemy" && collision.tag == "Player") // Checks if the collision was with an enemy and player
+        if (gameObject.tag == "Enemy" && collider.tag == "Player") // Checks if the collision was with an enemy and player
         {
             PlayerHealthController.playerHealth.hitPlayer();
         }
-
-        else if (collision.tag == "Player" && (bodySprite.sprite.name == "spikes_1") || (bodySprite.sprite.name == "spikes_2") || (bodySprite.sprite.name == "spikes_3") ) // If the collision was with the player and spike, then hurt them
+        else if (gameObject.tag == "Enemy" && collider.tag == "Player" && ((bodySprite.sprite.name == "spikes_1") || (bodySprite.sprite.name == "spikes_2") || (bodySprite.sprite.name == "spikes_3"))) // If the collision was with the player, then hurt them
         {
             PlayerHealthController.playerHealth.hitPlayer();
         }
@@ -46,8 +45,18 @@ public class HitPlayer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && gameObject.tag == "Enemy")
         {
+
+            PlayerHealthController.playerHealth.hitPlayer();
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && gameObject.tag == "Enemy")
+        {
+
             PlayerHealthController.playerHealth.hitPlayer();
         }
     }

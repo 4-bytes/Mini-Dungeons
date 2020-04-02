@@ -12,7 +12,7 @@ public class PlayerBullet : MonoBehaviour
     public GameObject bulletParticle; // Reference to particle object
 
     public int bulletDamage = 50;
-
+    public float lifespanTime; // How long the bullet lasts
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +23,16 @@ public class PlayerBullet : MonoBehaviour
     void Update()
     {
         rigidBody.velocity = transform.right * bulletSpeed; // Moves to the right relative to the object's facing position
+
+        if (lifespanTime > 0)
+        {
+            lifespanTime = lifespanTime - Time.deltaTime;
+            if (lifespanTime <= 0)
+            {
+                //Instantiate(bulletParticle, transform.position, transform.rotation);
+                // Destroy(gameObject);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) // Executes when one trigger collision enters another collider

@@ -4,42 +4,76 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    // Manages an enemy object
+    // Manages an enemy object and their properties/behaviours
 
     public Rigidbody2D rigidBody;
 
-    // *** Movement
+
+
+    // *** General
+    [Header("General: ")]
+    public int healthPoints = 200;
     public float walkSpeed; // How fast the enemy walks
     private Vector3 walkDirection; // The direction the enemy walks in
-    
-
-    // *** Animations
-    public Animator animate;
-
-    // *** Behaviours
-    public float chaseDistance; // The distance to the player that triggers the chase
-    public int healthPoints = 200;
+    public SpriteRenderer spriteBody; // The enemy sprite's body
     public GameObject deathSprite;
     public GameObject hitParticle;
 
-    // *** For ranged enemies
+    // *** Hurt effects
+    private float hitTime = .2f; // How long the hit effect lasts
+    private float hitCounter; // Countdown timer of hit
+
+    // *** Behaviours - Enemies can perform different behaviours like patrol, rush, defend, shoot from range, summon objects
+    // Patrol
+    [Header("Random Patrol: ")]
+    public bool canRandomPatrol; // Does the enemy "randomly" patrol the room
+    public float patrolLength; // How long the enemy patrols the room
+    public float patrolPause; // How long the enemy pauses between a patrol
+    private float patrolCounter; // Keeps track of patrols
+    private float patrolPauseCounter; // Tracks pauseCounter
+    private Vector3 patrolDirection; // Position to move
+    [Header("Route Patrol")]
+    public bool canRoutePatrol; // Does the enemy patrol using a route
+    public Transform[] route; // A route contains points which the enemy can move to
+    private int currentPoint; // The current point that the enemy is on
+    // Offensive 
+    [Header("Attacking: ")]
+    public bool isOffensive; // Is the enemy offensive (charges at player)
+    public float chaseDistance; // The distance to the player that triggers the chase
+    // Defensive 
+    [Header("Defensive: ")]
+    public bool isDefensive; // Is the enemy defensive (defends position)
+    public float defenseDistance; // The distance that triggers the enemy to defend
+    // Ranged
+    [Header("Ranged: ")]
     public bool isRanged; // Is the enemy ranged
     public Transform bulletPoint; // The place where the bullet originates from
     public GameObject bullet;  // The bullet object
     public float fireRange; // The range from where the enemy shoots from
     public float fireRate; // The rate of fire 
     private float fireRateCounter; // Keeps track of firing rate
+    // Summoner
+    [Header("Summon: ")]
+    public bool isSummoner; // Is the enemy ranged
+    public Transform summonPoint; // The place where the summon object spawns
+    public GameObject summonObject;  // The summoned object
+    public int summonLimit; // How many objects that can be summoned
+    public float summonRange; // The range from which causes the summonRange
+    public float summonRate;  // The summon rate
+    private float summonCounter; // Keeps track of summonCounter
+    private List<GameObject> summonedObjectsList = new List<GameObject>(); // Tracks summonedObjects in a list
 
-    public SpriteRenderer spriteBody; // The enemy sprite's body
 
-    // *** Hurt effects
-    private float hitTime = .2f; // How long the hit effect lasts
-    private float hitCounter; // Countdown timer of hit
+    // *** Animations
+    public Animator animate;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (canRandomPatrol == true)
+        {
+            patrolPauseCounter = Random.Range(patrolPause * .95f, patrolPause * 1.35f);
+        }
     }
 
     // Update is called once per frame
@@ -48,23 +82,110 @@ public class EnemyController : MonoBehaviour
 
         if (spriteBody.isVisible && PlayerController.player.gameObject.activeInHierarchy) // If the spriteBody is not visible then the enemy behaviours are not performed
         {   // Also checks if the player is still in hierarchy or not
-        // Compares position of enemy and player to chaseDistance (is Player in range?)
-        if (Vector3.Distance(transform.position, PlayerController.player.transform.position) < chaseDistance)
-        {
-            walkDirection = PlayerController.player.transform.position - transform.position;
-            if (PlayerController.player.transform.position.x < transform.position.x) // Face based on the position of the player
+            // Compares position of enemy and player to chaseDistance (is Player in range?)
+
+            walkDirection = Vector3.zero; // Reset to zero as default state if nothing happens
+
+
+            // Charge at player (isOffensive)
+            if (Vector3.Distance(transform.position, PlayerController.player.transform.position) < chaseDistance && isOffensive) // Chase the player if the distance and isOffensive are met
             {
-                transform.localScale = new Vector3(1f, 1f, 1f);
+                walkDirection = PlayerController.player.transform.position - transform.position;
+                if (PlayerController.player.transform.position.x < transform.position.x) // Face based on the position of the player
+                {
+                    transform.localScale = new Vector3(1f, 1f, 1f);
+                }
+                else
+                {
+                    transform.localScale = new Vector3(-1f, 1f, 1f);
+                }
             }
             else
             {
-                transform.localScale = new Vector3(-1f, 1f, 1f);
+                if (canRoutePatrol == true)
+                {
+                    walkDirection = route[currentPoint].position - transform.position; // Move towards the selected point in the route
+
+                    if (route[currentPoint].position.x < transform.position.x) // Face sprite based on the xAxis position
+                    {
+                        transform.localScale = new Vector3(1f, 1f, 1f);
+                    }
+                    else
+                    {
+                        transform.localScale = new Vector3(-1f, 1f, 1f);
+                    }
+                
+
+                    if (Vector3.Distance(transform.position, route[currentPoint].position) < .1f)
+                    {
+                        currentPoint = currentPoint + 1; // Increase it
+                        if (currentPoint >= route.Length)
+                        {
+                            currentPoint = 0; // Reset it
+                        }
+                    }
+                }
+
+                if (canRandomPatrol == true)
+                {
+                    if (patrolCounter > 0) // Enemy actively patrolling
+                    {
+                        patrolCounter = patrolCounter - Time.deltaTime;
+
+                        if (patrolDirection.x < transform.position.x)
+                        {
+                            transform.localScale = new Vector3(1f, 1f, 1f);
+                        }
+                        else
+                        {
+                            transform.localScale = new Vector3(-1f, 1f, 1f);
+                        }
+
+                        // Move the enemy
+                        walkDirection = patrolDirection;
+
+
+                        if (patrolCounter <= 0)
+                        {
+                            patrolPauseCounter = Random.Range(patrolPause * .95f, patrolPause * 1.35f); // Randomly make the enemy pause 
+
+                        }
+
+                    }
+
+                    if (patrolPauseCounter > 0)
+                    {
+                        patrolPauseCounter = patrolPauseCounter - Time.deltaTime;
+
+                        if (patrolPauseCounter <= 0)
+                        {
+                            patrolCounter = Random.Range(patrolLength * .95f, patrolLength * 1.35f);
+
+                            patrolDirection = new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), 0f); // The new direction to move
+                        }
+                    }
+                }
             }
-        }
-        else
-        {
+
+            // Defend from player (isDefensive)
+            if (Vector3.Distance(transform.position, PlayerController.player.transform.position) < defenseDistance && isDefensive)
+            {
+                walkDirection = transform.position - PlayerController.player.transform.position;
+                if (PlayerController.player.transform.position.x < transform.position.x) // Face based on the position of the player
+                {
+                    transform.localScale = new Vector3(1f, 1f, 1f);
+                }
+                else
+                {
+                    transform.localScale = new Vector3(-1f, 1f, 1f);
+                }
+            }
+
+ 
+            /*else
+            {
             walkDirection = Vector3.zero; // Reset to zero if player is out of range
-        }
+            } */
 
 
 
@@ -82,6 +203,31 @@ public class EnemyController : MonoBehaviour
                 Instantiate(bullet, bulletPoint.position, bulletPoint.rotation); // Create a new bullet at the bulletPoint
             }
         }
+
+        if (isSummoner == true && Vector3.Distance(transform.position, PlayerController.player.transform.position) < summonRange)
+            {
+                summonCounter = summonCounter - Time.deltaTime; // Count backwards
+
+                if (summonCounter <= 0) // Reset the counter if it gets to zero or less
+                {
+                    if (summonedObjectsList.Count < summonLimit) // Check limit against list count  
+                    {
+                        summonCounter = summonRate; // Reset counter
+                        summonedObjectsList.Add(Instantiate(summonObject, summonPoint.position, summonPoint.rotation)); // Create new object and add reference to list
+                    }
+                    else // Otherwise check loop for any missing (destroyed) objects
+                    {
+                        for (int i = 0; i < summonedObjectsList.Count; i++)
+                        {
+                            if (summonedObjectsList[i] == null)
+                            {
+                                summonedObjectsList.RemoveAt(i); // Removes missing objects so new ones can be created
+                            }
+                        }
+                    }
+
+                }
+            }
 
         // ** Manages hurt effects for enemies
         if (hitCounter > 0)
