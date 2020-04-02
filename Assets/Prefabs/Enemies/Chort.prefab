@@ -53,7 +53,10 @@ MonoBehaviour:
   rigidBody: {fileID: 5383916087488491613}
   walkSpeed: 2
   animate: {fileID: 5383916087488491614}
+  isOffensive: 1
   chaseDistance: 6
+  isDefensive: 0
+  defenseDistance: 0
   healthPoints: 200
   deathSprite: {fileID: 8721076702479399305, guid: 07ff40b541553e648bcc78e0b2ed2002,
     type: 3}
