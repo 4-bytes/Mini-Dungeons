@@ -94,7 +94,7 @@ public class PlayerHealthController : MonoBehaviour
 
     public void regenPlayer(int healAmount, string itemName) // Regens player's health or shield 
     {
-        if (itemName == "ItemShieldSmall" || itemName == "ItemShieldLarge") // Checks what the item is 
+        if (itemName == "ItemShieldSmall(Clone)" || itemName == "ItemShieldLarge(Clone)") // Checks what the item is 
         {
             currentShield = currentShield + healAmount; // Heal the player based on amount
             if (currentShield > maxShield) // If the current shield is greater than make it the same as max
@@ -106,7 +106,7 @@ public class PlayerHealthController : MonoBehaviour
             // return true;
         }
         
-        if (itemName == "ItemHealthSmall" || itemName == "ItemHealthLarge")
+        if (itemName == "ItemHealthSmall(Clone)" || itemName == "ItemHealthLarge(Clone)")
         {
             currentHP = currentHP + healAmount;
             if (currentHP > maxHP)
