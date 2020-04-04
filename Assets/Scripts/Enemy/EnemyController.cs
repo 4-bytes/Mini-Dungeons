@@ -265,7 +265,7 @@ public class EnemyController : MonoBehaviour
         spriteBody.color = new Color(0.87f, 0.27f, 0.27f, 1f); // Add a hurt effect
         hitCounter = hitTime; // Start the counter which will be used to tell how long the effect lasts
         Instantiate(hitParticle, transform.position, transform.rotation); // Create a hit particle 
-
+        AudioController.audioManager.playSoundEffect(2);
         if (healthPoints <= 0) // Remove the enemy after hp is <= 0
         {
             Destroy(gameObject);

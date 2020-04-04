@@ -29,8 +29,8 @@ public class PlayerBullet : MonoBehaviour
             lifespanTime = lifespanTime - Time.deltaTime;
             if (lifespanTime <= 0)
             {
-                //Instantiate(bulletParticle, transform.position, transform.rotation);
-                // Destroy(gameObject);
+                Instantiate(bulletParticle, transform.position, transform.rotation);
+                Destroy(gameObject);
             }
         }
     }

@@ -48,12 +48,16 @@ public class PlayerController : MonoBehaviour
     private float activeWalkSpeed; // The current walking speed
     public float jumpSpeed = 6f; // How fast can the player jump
     public float jumpLength = .5f; // How long the jump should be
+    [HideInInspector]
     public float jumpCooldown = 1f; // Wait until the next jump
     public float jumpInvincibility = .6f;
     [HideInInspector] // don't display the below variable in inspector
     public float jumpCounter; 
     private float jumpCooldownCounter;
 
+    public List<PlayerGun> gunsList = new List<PlayerGun>();
+    [HideInInspector]
+    public int currentGun;
     private void Awake() // Executes as object exists in world
     {
         player = this; // Makes one single version of the instance, set player to this
@@ -64,6 +68,9 @@ public class PlayerController : MonoBehaviour
     {
         gameCamera = Camera.main; // set to Camera.main at the start of level
         activeWalkSpeed = walkSpeed;
+
+        UserInterfaceController.UIcontroller.currentGunImage.sprite = gunsList[currentGun].gunImage; // Get the current gun image from the gunsList and display in UI
+        UserInterfaceController.UIcontroller.currentGunText.text = gunsList[currentGun].gunName; // Display gun text in UI
     }
 
     // Update is called once per frame
@@ -123,9 +130,40 @@ public class PlayerController : MonoBehaviour
                 }
             } */
 
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (gunsList.Count > 0)
+                {
+                    currentGun = currentGun + 1;
+                    if (currentGun >= gunsList.Count) // Change the current gun back to the first one in the list
+                    {
+                        currentGun = 0;
+                    }
+
+                    changeGun();
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (gunsList.Count > 0)
+                {
+                    if (currentGun == 0)
+                    {
+                        currentGun = gunsList.Count - 1; // If the current gun is the first one, then move the current one back to the last element
+                    }
+                    else
+                    {
+                        currentGun = currentGun - 1;
+                    }
+                    changeGun();
+
+                }
+            }
+
 
             // *** Player jump ability
-            if (Input.GetKey(KeyCode.LeftShift)) // Check if the left shift key is pressed, is jumpCooldow
+            if (Input.GetKey(KeyCode.LeftShift)) // Check if the left shift key is pressed, is jumpCooldown
             {
                 if (jumpCooldownCounter <= 0 && jumpCounter <= 0) // Checks if the jump ability is ready to be executed
                 {
@@ -134,7 +172,7 @@ public class PlayerController : MonoBehaviour
                     animate.SetTrigger("Jump"); // Perform the jump animation when the ability is triggered
                     PlayerHealthController.playerHealth.makeInvincible(jumpInvincibility);
                     Time.timeScale = 0.6f; // Slow down time
-
+                    // Play sound 
                 }
 
             }
@@ -175,4 +213,17 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
+
+    public void changeGun()
+    {
+        for (int i = 0; i < gunsList.Count; i++)
+        {
+            gunsList[i].gameObject.SetActive(false); // Set all guns active to false
+        }
+        UserInterfaceController.UIcontroller.currentGunImage.sprite = gunsList[currentGun].gunImage; // Get the current gun image from the gunsList and display in UI
+        UserInterfaceController.UIcontroller.currentGunText.text = gunsList[currentGun].gunName; // Get current gun text and display in UI
+        // Play gun change sound
+        gunsList[currentGun].gameObject.SetActive(true); // Set the current changed gun to true
+    }
 }

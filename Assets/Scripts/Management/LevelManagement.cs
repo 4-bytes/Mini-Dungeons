@@ -12,6 +12,8 @@ public class LevelManagement : MonoBehaviour
 
     public bool isPaused;
 
+    public int playerCoins;
+
     private void Awake()
     {
         manager = this;
@@ -21,6 +23,8 @@ public class LevelManagement : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f; // Make the time back to normal when new game is loaded
+
+        UserInterfaceController.UIcontroller.playerCoins.text = playerCoins.ToString(); // Set the coin text to the playerCoins
     }
 
     // Update is called once per frame
@@ -37,7 +41,7 @@ public class LevelManagement : MonoBehaviour
         if (!isPaused == true) // If the game isnt paused then pause it
         {
             UserInterfaceController.UIcontroller.pauseUI.SetActive(true);
-
+            UserInterfaceController.UIcontroller.pauseButton.enabled = false;
             isPaused = true;
 
             pauseTime(0f);
@@ -48,7 +52,7 @@ public class LevelManagement : MonoBehaviour
             resumeLevel();
 
             isPaused = false;
-
+            UserInterfaceController.UIcontroller.pauseButton.enabled = true;
             pauseTime(1f);
         }
     }
@@ -76,5 +80,22 @@ public class LevelManagement : MonoBehaviour
         SceneManager.LoadScene(levelName);
 
 
+    }
+
+    public void getCoins(int value) // Gives the player coins after an event
+    {
+        playerCoins = value;
+        UserInterfaceController.UIcontroller.playerCoins.text = playerCoins.ToString();
+    }
+
+    public void useCoins(int value) // Using coins to buy things
+    {
+        playerCoins = value;
+
+        if (playerCoins < 0) 
+        {
+            playerCoins = 0;
+        }
+        UserInterfaceController.UIcontroller.playerCoins.text = playerCoins.ToString();
     }
 }

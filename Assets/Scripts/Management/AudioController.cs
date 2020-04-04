@@ -8,14 +8,22 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     public static AudioController audioManager;
-    public bool playMusic;
-    public bool playSound;
-    public AudioSource menuMusic;
+    public bool playMusic = true;
+    public bool playSound = true;
+
     public AudioSource levelMusic;
     public AudioSource deathMusic;
     public AudioSource victoryMusic;
 
+    public AudioSource[] soundEffects;
+
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        audioManager = this;
+    }
+
     void Start()
     {
         
@@ -40,6 +48,14 @@ public class AudioController : MonoBehaviour
 
         victoryMusic.Play();
     }
+
+    public void playSoundEffect(int index)
+    {
+        soundEffects[index].Stop();
+        soundEffects[index].Play();
+    }
+
+
 
 
 

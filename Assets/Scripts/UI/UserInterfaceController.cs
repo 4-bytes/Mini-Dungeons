@@ -12,13 +12,20 @@ public class UserInterfaceController : MonoBehaviour
     public string mainMenu;
     public string newGame;
 
+    // *** Main User Interface
+    public Image pauseButton;
     // The HP Bar properties
     public Slider HPBar;
     public Text HPText;
-
     // The Shield properties
     public Slider shieldBar;
     public Text shieldText;
+    // Player coin
+    public Text playerCoins;
+    // Gun details
+    public Image currentGunImage;
+    public Text currentGunText;
+
 
     // Screen when the player is dead
     public GameObject deathUI;
@@ -32,6 +39,7 @@ public class UserInterfaceController : MonoBehaviour
     private bool fadeIn;
     private bool fadeOut;
 
+    
     public void Awake()
     {
         UIcontroller = this;
