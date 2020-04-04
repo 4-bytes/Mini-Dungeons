@@ -61,6 +61,9 @@ MonoBehaviour:
   jumpCooldown: 1
   jumpInvincibility: 4
   jumpCounter: 0
+  gunsList:
+  - {fileID: 1629627212474848625}
+  currentGun: 0
 --- !u!58 &4931039070328792060
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -505,6 +508,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Uzi
       objectReference: {fileID: 0}
+    - target: {fileID: 1394764091606597742, guid: 370ece12eb45e7746b3f9e8ad337f97f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6897240844400937728, guid: 370ece12eb45e7746b3f9e8ad337f97f,
+        type: 3}
+      propertyPath: fireRate
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 370ece12eb45e7746b3f9e8ad337f97f, type: 3}
 --- !u!4 &4815340244948279883 stripped
@@ -513,3 +526,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5272155308688072305}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1629627212474848625 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6897240844400937728, guid: 370ece12eb45e7746b3f9e8ad337f97f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5272155308688072305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96f2f296fe11f34898fb09f94625b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
