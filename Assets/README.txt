@@ -16,6 +16,7 @@ Dungeon Tileset II - https://0x72.itch.io/dungeontileset-ii [ Last accessed 17/0
 Free Pixel Font (Thaleah Fat) - https://tinyworlds.itch.io/free-pixel-font-thaleah [ Last accessed 16/03//2020 ]
 Simple Dungeon Crawler Art Asset Pack - https://o-lobster.itch.io/simple-dungeon-crawler-16x16-pixel-pack [ Last accessed 17/03/2020 ]
 Flame Animated - https://lelex-game-and-art-maker.itch.io/fire-animated [ Last accessed 01/04/2020 ]
+Keyboard controller keys - https://hyohnoo.itch.io/keyboard-controller-keys [ Last accessed 04/04/2020 ]
 
 Source-codes/Programming credit:
 2D Ranged Shooting Tutorial - https://www.youtube.com/watch?v=bY4Hr2x05p8 [ Last accessed 23/02/2020 ]
@@ -26,3 +27,4 @@ https://opengameart.org/content/2-wooden-squish-splatter-sequences [ Last access
 https://opengameart.org/content/win-music-1 [ Last accessed 21/03/2020 ]
 https://opengameart.org/content/stone-fortress
 http://mrjoshuamclean.com/royalty-free-music/ [ Last accessed 31/03/2020 ]
+https://opengameart.org/content/512-sound-effects-8-bit-style [ Last accessed 03/04/2020 ]
