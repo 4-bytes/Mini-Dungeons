@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunName: Shotgun
   gunImage: {fileID: 21300000, guid: 95b4b535fd1bbee4094c1035753387cc, type: 3}
-  gunSound: 3
+  gunSound: 2
   bulletObject: {fileID: 7861239756278077867, guid: b6ef4c2c8f549bd4eb57611029ffe213,
     type: 3}
   bulletPoint:

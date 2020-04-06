@@ -96,12 +96,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunName: Uzi
   gunImage: {fileID: 21300000, guid: 8f7cf9eea66bd9c439789bdb6258da5a, type: 3}
-  gunSound: 3
+  gunSound: 5
   bulletObject: {fileID: 3885226007624243383, guid: 601384f189dd9934a9b7e4d0c5cbbfc2,
     type: 3}
   bulletPoint:
   - {fileID: 6393727126935254526}
-  fireRate: 0.1
+  fireRate: 0.05
 --- !u!1 &4803790028678013355
 GameObject:
   m_ObjectHideFlags: 0
