@@ -17,8 +17,10 @@ public class EnemyController : MonoBehaviour
     private Vector3 walkDirection; // The direction the enemy walks in
     public SpriteRenderer spriteBody; // The enemy sprite's body
     public GameObject deathSprite;
+    public int deathScream; // Sound to play after death
     public GameObject hitParticle;
-
+    public int coinsDrop; // Chance of giving coins after killed
+    public float coinsDropRate; // Rate of dropping
     // *** Hurt effects
     private float hitTime = .2f; // How long the hit effect lasts
     private float hitCounter; // Countdown timer of hit
@@ -47,6 +49,7 @@ public class EnemyController : MonoBehaviour
     // Ranged
     [Header("Ranged: ")]
     public bool isRanged; // Is the enemy ranged
+    public int bulletSound; // Sound of bullet
     public Transform bulletPoint; // The place where the bullet originates from
     public GameObject bullet;  // The bullet object
     public float fireRange; // The range from where the enemy shoots from
@@ -55,6 +58,7 @@ public class EnemyController : MonoBehaviour
     // Summoner
     [Header("Summon: ")]
     public bool isSummoner; // Is the enemy ranged
+    public int summonSound;
     public Transform summonPoint; // The place where the summon object spawns
     public GameObject summonObject;  // The summoned object
     public int summonLimit; // How many objects that can be summoned
@@ -265,9 +269,18 @@ public class EnemyController : MonoBehaviour
         spriteBody.color = new Color(0.87f, 0.27f, 0.27f, 1f); // Add a hurt effect
         hitCounter = hitTime; // Start the counter which will be used to tell how long the effect lasts
         Instantiate(hitParticle, transform.position, transform.rotation); // Create a hit particle 
-        AudioController.audioManager.playSoundEffect(2);
+        AudioController.audioManager.playSoundEffect(3);
         if (healthPoints <= 0) // Remove the enemy after hp is <= 0
         {
+            float chance = Random.Range(0, 100);
+            AudioController.audioManager.playSoundEffect(deathScream);
+            if (chance < coinsDropRate)
+            {
+                LevelManagement.manager.getCoins(coinsDrop);
+                // Display UI
+            }
+
+
             Destroy(gameObject);
             GameObject obj = Instantiate(deathSprite, transform.position, transform.rotation); // Create a death sprite
             if (PlayerController.player.transform.position.x < transform.position.x) // Make the death sprite face based on the position of the player

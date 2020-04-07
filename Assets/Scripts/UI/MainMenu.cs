@@ -72,6 +72,7 @@ public class MainMenu : MonoBehaviour
 
     public void exitGame() // Quit the game
     {
+        print("Quit app");
         Application.Quit();
     }
 

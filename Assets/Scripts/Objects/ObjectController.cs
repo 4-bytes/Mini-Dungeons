@@ -45,7 +45,8 @@ public class ObjectController : MonoBehaviour
     public void objectDrops(int dropRate) // 
     {
         Destroy(gameObject);
-
+        // Play sound
+        AudioController.audioManager.playSoundEffect(1);
         for (int i = 0; i < dropRate; i++) // Loop and select at random the object pieces and instantiate them
         {
             int selectRandom = Random.Range(0, objectPieces.Length); // Select a piece at random

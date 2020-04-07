@@ -51,23 +51,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 5383916087488491613}
+  healthPoints: 200
   walkSpeed: 2
-  animate: {fileID: 5383916087488491614}
+  spriteBody: {fileID: 5383916088299922820}
+  deathSprite: {fileID: 8721076702479399305, guid: 07ff40b541553e648bcc78e0b2ed2002,
+    type: 3}
+  deathScream: 7
+  hitParticle: {fileID: 6058813507365275155, guid: eabf65e5891cca442baf6c77d449510e,
+    type: 3}
+  coinsDrop: 0
+  coinsDropRate: 0
+  canRandomPatrol: 0
+  patrolLength: 0
+  patrolPause: 0
+  canRoutePatrol: 0
+  route: []
   isOffensive: 1
   chaseDistance: 6
   isDefensive: 0
   defenseDistance: 0
-  healthPoints: 200
-  deathSprite: {fileID: 8721076702479399305, guid: 07ff40b541553e648bcc78e0b2ed2002,
-    type: 3}
-  hitParticle: {fileID: 6058813507365275155, guid: eabf65e5891cca442baf6c77d449510e,
-    type: 3}
   isRanged: 1
+  bulletSound: 0
   bulletPoint: {fileID: 5383916089392697777}
   bullet: {fileID: 6811812789978343740, guid: a7daf0a4cb519414897d5f9b895e08e2, type: 3}
   fireRange: 6
   fireRate: 1
-  spriteBody: {fileID: 5383916088299922820}
+  isSummoner: 0
+  summonSound: 0
+  summonPoint: {fileID: 0}
+  summonObject: {fileID: 0}
+  summonLimit: 0
+  summonRange: 0
+  summonRate: 0
+  animate: {fileID: 5383916087488491614}
 --- !u!95 &5383916087488491614
 Animator:
   serializedVersion: 3

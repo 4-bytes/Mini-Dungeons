@@ -76,23 +76,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 6076036753047430714}
+  healthPoints: 200
   walkSpeed: 4
-  animate: {fileID: 6076036753047430712}
+  spriteBody: {fileID: 6076036754374327014}
+  deathSprite: {fileID: 3580863300448466539, guid: 5e0a2cc16e98c08439a39cacc4c6fe5a,
+    type: 3}
+  deathScream: 6
+  hitParticle: {fileID: 6433925454854337594, guid: 06bfa36a062f3d2409ea27b3c650bd6a,
+    type: 3}
+  coinsDrop: 50
+  coinsDropRate: 100
+  canRandomPatrol: 0
+  patrolLength: 0
+  patrolPause: 0
+  canRoutePatrol: 0
+  route: []
   isOffensive: 1
   chaseDistance: 6
   isDefensive: 0
   defenseDistance: 0
-  healthPoints: 200
-  deathSprite: {fileID: 3580863300448466539, guid: 5e0a2cc16e98c08439a39cacc4c6fe5a,
-    type: 3}
-  hitParticle: {fileID: 6433925454854337594, guid: 06bfa36a062f3d2409ea27b3c650bd6a,
-    type: 3}
   isRanged: 0
+  bulletSound: 0
   bulletPoint: {fileID: 0}
   bullet: {fileID: 0}
   fireRange: 0
   fireRate: 0
-  spriteBody: {fileID: 6076036754374327014}
+  isSummoner: 0
+  summonSound: 0
+  summonPoint: {fileID: 0}
+  summonObject: {fileID: 0}
+  summonLimit: 0
+  summonRange: 0
+  summonRate: 0
+  animate: {fileID: 6076036753047430712}
 --- !u!50 &6076036753047430714
 Rigidbody2D:
   serializedVersion: 4

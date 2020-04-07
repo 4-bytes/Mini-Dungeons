@@ -9,8 +9,13 @@ public class GenerateDungeon : MonoBehaviour
 
     public GameObject placeRoom; // Base placement of a room
     public int distToFinish; // Number of rooms to finish
+    public bool hasShop; // Does the dungeon level contain a shop
+    public int minDistShop;
+    public int maxDistShop;
+    // For minimap
     public Color start; // Starting Room Color
     public Color end; // End Room Color
+    public Color shop; // Shop Color 
     public Transform generatePoint; // Position to generate the room
 
     public RoomLayouts roomLayouts; // Room layouts that a room can have
@@ -29,14 +34,15 @@ public class GenerateDungeon : MonoBehaviour
     public float yAxis = 10f;
     public LayerMask roomLayer; // The layer of the room
     private GameObject lastRoom; // Reference to the last room of the dungeon, the room which the player needs to complete to finish level
+    private GameObject shopRoom; // The shop room 
     private List<GameObject> roomList = new List<GameObject>(); // List of rooms in the dungeon
     private List<GameObject> createdLayouts = new List<GameObject>(); // Reference to room layouts that have been built
 
     // RoomMiddle references
-    public RoomMiddle[] middlesList; // List of room middles to choose from
+    public RoomMiddle[] middlesList; // List of template room middles to choose from
     public RoomMiddle middleStart; // The starting room
     public RoomMiddle middleEnd; // The ending room 
-
+    public RoomMiddle middleShop; // The shop   
 
     // Start is called before the first frame update
     void Start()
@@ -71,6 +77,18 @@ public class GenerateDungeon : MonoBehaviour
 
         }
 
+        if (hasShop == true) // Find a location to create a shop for the dungeon level
+        {
+            int pickLocation = Random.Range(minDistShop, maxDistShop); // Pick a location to spawn the shop based on minDistance and maxDistance
+                                                                       // (Location picked is always minDist or maxDistShop -1)
+
+            shopRoom = roomList[pickLocation]; // The location for the shop
+            roomList.RemoveAt(pickLocation); // Remove the shopRoom from the createdLayouts list
+            shopRoom.GetComponent<SpriteRenderer>().color = shop; // Assign shop color to shopRoom sprite
+
+
+        }
+
         // Create room layouts 
         createRoomLayout(Vector3.zero);
         for (int i = 0; i < roomList.Count; i++)
@@ -79,22 +97,37 @@ public class GenerateDungeon : MonoBehaviour
         }
         createRoomLayout(lastRoom.transform.position); // Create a layout for last room
 
+        if (hasShop == true)
+        {
+            createRoomLayout(shopRoom.transform.position);
+        }
+
 
         // Assign middles to the room layouts
         for (int i = 0; i < createdLayouts.Count; i++)
         {
             bool middleStartEndAssigned = false; // Tracks if middleStart/middleEnd was assigned
 
-            if (createdLayouts[i].transform.position == Vector3.zero) // Is roomLayout at start position then its starting room and assign it to it
+            if (createdLayouts[i].transform.position == Vector3.zero) // Is roomLayout at start position then its starting room and assign to it
             {
                 Instantiate(middleStart, createdLayouts[i].transform.position, transform.rotation).room = createdLayouts[i].GetComponent<RoomController>();
                 middleStartEndAssigned = true; 
             }
 
-            if (createdLayouts[i].transform.position == lastRoom.transform.position)
+            if (createdLayouts[i].transform.position == lastRoom.transform.position) // Is the roomLayout the last room, if it is then assign to it
             {
                 Instantiate(middleEnd, createdLayouts[i].transform.position, transform.rotation).room = createdLayouts[i].GetComponent<RoomController>();
                 middleStartEndAssigned = true;
+            }
+
+            if (hasShop == true)
+            {
+                if (createdLayouts[i].transform.position == shopRoom.transform.position) 
+                {
+                    // Create a shop at the position if the roomLayout is at shopRoom's position
+                    Instantiate(middleShop, createdLayouts[i].transform.position, transform.rotation).room = createdLayouts[i].GetComponent<RoomController>();
+                    middleStartEndAssigned = true;
+                }
             }
 
             int randomInt = Random.Range(0, middlesList.Length); // Randomly pick a middle and assign to roomLayout

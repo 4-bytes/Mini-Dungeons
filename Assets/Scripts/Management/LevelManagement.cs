@@ -84,13 +84,13 @@ public class LevelManagement : MonoBehaviour
 
     public void getCoins(int value) // Gives the player coins after an event
     {
-        playerCoins = value;
+        playerCoins = playerCoins + value;
         UserInterfaceController.UIcontroller.playerCoins.text = playerCoins.ToString();
     }
 
     public void useCoins(int value) // Using coins to buy things
     {
-        playerCoins = value;
+        playerCoins = playerCoins - value;
 
         if (playerCoins < 0) 
         {

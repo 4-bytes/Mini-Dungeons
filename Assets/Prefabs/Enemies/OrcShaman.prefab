@@ -113,20 +113,33 @@ MonoBehaviour:
   spriteBody: {fileID: 5476246480679028509}
   deathSprite: {fileID: 3347353763108345714, guid: 15dd8b437516ca64bbd51c8d752fad2c,
     type: 3}
+  deathScream: 8
   hitParticle: {fileID: 5683968893418618372, guid: 37267b1d257c08e438420c6dadfca170,
     type: 3}
+  coinsDrop: 0
+  coinsDropRate: 0
   canRandomPatrol: 0
   patrolLength: 0
   patrolPause: 0
+  canRoutePatrol: 0
+  route: []
   isOffensive: 0
   chaseDistance: 6
   isDefensive: 1
   defenseDistance: 5
   isRanged: 1
+  bulletSound: 0
   bulletPoint: {fileID: 243045074}
   bullet: {fileID: 6811812789978343740, guid: a7daf0a4cb519414897d5f9b895e08e2, type: 3}
   fireRange: 7
   fireRate: 0.5
+  isSummoner: 0
+  summonSound: 0
+  summonPoint: {fileID: 0}
+  summonObject: {fileID: 0}
+  summonLimit: 0
+  summonRange: 0
+  summonRate: 0
   animate: {fileID: 5476246479321799619}
 --- !u!50 &5476246479321799617
 Rigidbody2D:

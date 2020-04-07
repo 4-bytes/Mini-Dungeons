@@ -26,6 +26,9 @@ public class UserInterfaceController : MonoBehaviour
     public Image currentGunImage;
     public Text currentGunText;
 
+    // Minimap
+    public GameObject minimap;
+    public GameObject minimapBackground;
 
     // Screen when the player is dead
     public GameObject deathUI;

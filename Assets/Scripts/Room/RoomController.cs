@@ -14,6 +14,7 @@ public class RoomController : MonoBehaviour
 
     [HideInInspector]
     public bool isActive; // Check if room is active
+    public GameObject mapFog; // The gameObject that hides room from minimap
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +68,8 @@ public class RoomController : MonoBehaviour
                 }
             }
             isActive = true; // Setroom as active on enter
+
+            mapFog.SetActive(false); 
         }
     }
 

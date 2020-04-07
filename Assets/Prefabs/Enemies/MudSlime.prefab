@@ -215,9 +215,12 @@ MonoBehaviour:
   spriteBody: {fileID: 6870135076247186227}
   deathSprite: {fileID: 155362940554607525, guid: 35ad4800f4a92b74bbf4cd0aee095c17,
     type: 3}
+  deathScream: 8
   hitParticle: {fileID: 3861230129074189328, guid: 64403e6e04450d24ea0b21ec0bd3726f,
     type: 3}
-  canRandomPatrol: 0
+  coinsDrop: 0
+  coinsDropRate: 0
+  canRandomPatrol: 1
   patrolLength: 5
   patrolPause: 1
   canRoutePatrol: 0
@@ -227,11 +230,13 @@ MonoBehaviour:
   isDefensive: 0
   defenseDistance: 0
   isRanged: 0
+  bulletSound: 0
   bulletPoint: {fileID: 0}
   bullet: {fileID: 0}
   fireRange: 0
   fireRate: 0
   isSummoner: 0
+  summonSound: 0
   summonPoint: {fileID: 0}
   summonObject: {fileID: 0}
   summonLimit: 0
