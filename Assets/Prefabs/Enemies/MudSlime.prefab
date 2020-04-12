@@ -226,7 +226,7 @@ MonoBehaviour:
   canRoutePatrol: 0
   route: []
   isOffensive: 1
-  chaseDistance: 2
+  chaseDistance: 4
   isDefensive: 0
   defenseDistance: 0
   isRanged: 0

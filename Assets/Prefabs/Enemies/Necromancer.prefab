@@ -270,7 +270,7 @@ MonoBehaviour:
     type: 3}
   summonLimit: 5
   summonRange: 5
-  summonRate: 1
+  summonRate: 1.5
   animate: {fileID: 2919783921650781005}
 --- !u!50 &2919783921650781007
 Rigidbody2D:
