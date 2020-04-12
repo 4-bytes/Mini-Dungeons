@@ -25,8 +25,9 @@ public class HitPlayer : MonoBehaviour
         {
             PlayerHealthController.playerHealth.hitPlayer();
         }
-        else if (gameObject.tag == "Enemy" && collider.tag == "Player" && ((bodySprite.sprite.name == "spikes_1") || (bodySprite.sprite.name == "spikes_2") || (bodySprite.sprite.name == "spikes_3"))) // If the collision was with the player, then hurt them
-        {
+        else if (gameObject.tag == "Object" && collider.tag == "Player" && ((bodySprite.sprite.name == "spikes_1") || (bodySprite.sprite.name == "spikes_2") || (bodySprite.sprite.name == "spikes_3"))) // If the collision was with the player, then hurt them
+        { // Checks if the gameObject was a spike
+
             PlayerHealthController.playerHealth.hitPlayer();
         }
     }

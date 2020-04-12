@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class WallArrow : MonoBehaviour
 {
+    // Creates a projectile that is fired when player enters the trigger area
+
     public Transform bulletPoint; // The place where the bullet originates from
     public GameObject bullet;  // The bullet object
     public float fireRange; // The range from where the enemy shoots from
     public float fireRate; // The rate of fire 
     private float fireRateCounter; // Keeps track of firing rate
-    public GameObject triggerArea;
-    private bool triggered = true;
+    private bool triggered; // Checks whether player is in the area
     // Start is called before the first frame update
     void Start()
     {
@@ -28,13 +29,14 @@ public class WallArrow : MonoBehaviour
             {
                 fireRateCounter = fireRate;
                 Instantiate(bullet, bulletPoint.position, bulletPoint.rotation); // Create a new bullet at the bulletPoint
+                // Play sound
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && triggerArea)
+        if (collision.tag == "Player")
         {
             triggered = true;
         }
@@ -43,7 +45,7 @@ public class WallArrow : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && triggerArea)
+        if (collision.tag == "Player")
         {
             triggered = true;
         }
@@ -51,7 +53,7 @@ public class WallArrow : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && triggerArea)
+        if (collision.tag == "Player")
         {
             triggered = false;
         }

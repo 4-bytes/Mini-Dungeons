@@ -53,6 +53,9 @@ public class UserInterfaceController : MonoBehaviour
     {
         fadeOut = true; // At start, make fade out from black background
         fadeIn = false;
+
+        currentGunImage.sprite = PlayerController.player.gunsList[PlayerController.player.currentGun].gunImage; 
+        currentGunText.text = PlayerController.player.gunsList[PlayerController.player.currentGun].gunName;
     }
 
     // Update is called once per frame
@@ -85,6 +88,7 @@ public class UserInterfaceController : MonoBehaviour
         Time.timeScale = 1f; // Reset time back to normal when new game is loaded
 
         SceneManager.LoadScene(newGame);
+        Destroy(PlayerController.player.gameObject); // Destroy the player object when new game is made
     }
 
     public void exitGame() // Exits back to main menu
@@ -92,6 +96,8 @@ public class UserInterfaceController : MonoBehaviour
         Time.timeScale = 1f; 
 
         SceneManager.LoadScene("MainMenu");
+
+        Destroy(PlayerController.player.gameObject); // Destroy when on the main menu
     }
 
     public void resumeGame() // Resumes game from pause state

@@ -5,17 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class LevelComplete : MonoBehaviour
 {
-    public string levelName;
-    public string levelStage;
+    public string levelName; // The name of scene to load
+    // public string levelStage;
 
-    public float waitCountdown = 3f;
+    public float waitCountdown = 2f;
     public GameObject continueButton;
     public GameObject exitButton;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.timeScale = 1f;
+
+        Destroy(PlayerController.player.gameObject); // Destroy object after complete screen displayed
     }
 
     // Update is called once per frame
@@ -39,8 +41,9 @@ public class LevelComplete : MonoBehaviour
         }
     }
 
-    public void continueLevel() // Load the level
+    public void continueLevel() // Save playerstats and load scene
     {
+        PlayerPrefs.SetInt("playerCoins", DataManager.data.playerCoins); // Save coins based on the player's current playerCoins after completing dungeon 
         SceneManager.LoadScene(levelName);
 
     }

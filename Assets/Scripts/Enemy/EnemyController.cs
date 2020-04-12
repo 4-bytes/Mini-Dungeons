@@ -142,6 +142,7 @@ public class EnemyController : MonoBehaviour
                         }
                         else
                         {
+
                             transform.localScale = new Vector3(-1f, 1f, 1f);
                         }
 
@@ -265,32 +266,43 @@ public class EnemyController : MonoBehaviour
 
     public void HitEnemy(int bulletDamage) // Executes when the player hits an enemy
     {
-        healthPoints = healthPoints - bulletDamage;
-        spriteBody.color = new Color(0.87f, 0.27f, 0.27f, 1f); // Add a hurt effect
-        hitCounter = hitTime; // Start the counter which will be used to tell how long the effect lasts
-        Instantiate(hitParticle, transform.position, transform.rotation); // Create a hit particle 
-        AudioController.audioManager.playSoundEffect(3);
-        if (healthPoints <= 0) // Remove the enemy after hp is <= 0
-        {
-            float chance = Random.Range(0, 100);
-            AudioController.audioManager.playSoundEffect(deathScream);
-            if (chance < coinsDropRate)
-            {
-                LevelManagement.manager.getCoins(coinsDrop);
-                // Display UI
-            }
+        
 
 
-            Destroy(gameObject);
-            GameObject obj = Instantiate(deathSprite, transform.position, transform.rotation); // Create a death sprite
-            if (PlayerController.player.transform.position.x < transform.position.x) // Make the death sprite face based on the position of the player
+            healthPoints = healthPoints - bulletDamage;
+
+            if (isOffensive == true) // Check if enemy has attacking behaviour
             {
-                obj.transform.localScale = new Vector3(1f, 1f, 1f);
+                chaseDistance = 30; // Once the player hits an enemy, make the enemy aggressive
             }
-            else
+
+            spriteBody.color = new Color(0.87f, 0.27f, 0.27f, 1f); // Add a hurt effect
+            hitCounter = hitTime; // Start the counter which will be used to tell how long the effect lasts
+            Instantiate(hitParticle, transform.position, transform.rotation); // Create a hit particle 
+            AudioController.audioManager.playSoundEffect(3);
+            if (healthPoints <= 0) // Remove the enemy after hp is <= 0
             {
-                obj.transform.localScale = new Vector3(-1f, 1f, 1f);
+                float chance = Random.Range(0, 100);
+                AudioController.audioManager.playSoundEffect(deathScream);
+                if (chance < coinsDropRate)
+                {
+                    LevelManagement.manager.getCoins(coinsDrop);
+                    // Display UI
+                }
+
+
+                Destroy(gameObject);
+                GameObject obj = Instantiate(deathSprite, transform.position, transform.rotation); // Create a death sprite
+                if (PlayerController.player.transform.position.x < transform.position.x) // Make the death sprite face based on the position of the player
+                {
+                    obj.transform.localScale = new Vector3(1f, 1f, 1f);
+                }
+                else
+                {
+                    obj.transform.localScale = new Vector3(-1f, 1f, 1f);
+                }
             }
+
         }
-    }
+    
 }

@@ -73,7 +73,11 @@ public class CameraController : MonoBehaviour
 
     public void openFullMap()
     {
-        if (LevelManagement.manager.isPaused == false) // Should only work if the game is not paused
+        if (fullMapCamera == null)  // Stops errors if the fullMapCamera is not in use
+        {
+            print("fullMapCamera does not exist");
+        }
+        else if (LevelManagement.manager.isPaused == false) // Should only work if the game is not paused
         {
             isFullMapActive = true; // Set to true as fullMap camera is active
             fullMapCamera.enabled = true; // Enable full map camera
@@ -83,11 +87,16 @@ public class CameraController : MonoBehaviour
             PlayerController.player.isActivated = false; // When fullmap is opened, player controls will be disabled
             Time.timeScale = 0f; // Freeze time so that nothing else moves
         }
+
     }
 
     public void closeFullMap()
     {
-        if (LevelManagement.manager.isPaused == false)
+        if (fullMapCamera == null) // Stops errors if the fullMapCamera is not in use
+        {
+            print("fullMapCamera does not exist");
+        }
+        else if (LevelManagement.manager.isPaused == false)
         {
             isFullMapActive = false; // Set to false as fullMap camera is inactive
             fullMapCamera.enabled = false; // Disable full map camera

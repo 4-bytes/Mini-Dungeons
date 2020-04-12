@@ -33,15 +33,15 @@ public class ShopItem : MonoBehaviour
     {
         if (triggered == true)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift)) // If the player presses the 
+            if (Input.GetKeyDown(KeyCode.Space)) // If the player presses the spacebar 
             {
-                if (LevelManagement.manager.playerCoins >= itemPrice)
+                if (LevelManagement.manager.playerCoins >= itemPrice) // Check if they have enough coins to make purchase
                 {
                     LevelManagement.manager.useCoins(itemPrice);
 
-                    if (healthRegen == true)
+                    if (healthRegen == true) // Check what kind of item they are trying to buy
                     {
-                        PlayerHealthController.playerHealth.regenPlayer(PlayerHealthController.playerHealth.maxHP, "ShopItemHealth");
+                        PlayerHealthController.playerHealth.regenPlayer(PlayerHealthController.playerHealth.maxHP, "ShopItemHealth"); 
                     }
 
                     if (shieldRegen == true)

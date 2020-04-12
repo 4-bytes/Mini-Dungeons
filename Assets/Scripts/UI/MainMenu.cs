@@ -15,6 +15,10 @@ public class MainMenu : MonoBehaviour
     public GameObject soundActiveButton;
     public GameObject soundInactiveButton;
 
+    public GameObject newGamePrompt; // Warning prompt
+    public GameObject deletedGamePrompt; // Displays once game data was deleted 
+    public PlayerChanger[] characterList; // List of characters
+
     public new AudioSource audio;
     // Handles Main Menu UI
     // Start is called before the first frame update
@@ -62,6 +66,33 @@ public class MainMenu : MonoBehaviour
         }
 
 
+    }
+
+    public void overwriteSave() // Opens the panel which has the prompt whether to restart data
+    {
+        newGamePrompt.SetActive(true); // Display the prompt
+    }
+
+    public void confirmDelete() 
+    {
+        newGamePrompt.SetActive(false);
+        foreach (PlayerChanger character in characterList) // Deletes data 
+        {
+            PlayerPrefs.SetInt(character.playableCharacter.name, 0); // Delete save by setting value to 0 of all chars
+        }
+        PlayerPrefs.SetInt("playerCoins", 0); // Erase playerCoins
+        deletedGamePrompt.SetActive(true);
+        // newGame(); // Executes new game
+    }
+
+    public void closeDeletedPrompt() // Disables the prompt onclick
+    {
+        deletedGamePrompt.SetActive(false);
+    }
+
+    public void cancelNewgame()
+    {
+        newGamePrompt.SetActive(false);
     }
 
     public void exitHelpScreen() // When the player presses back button
