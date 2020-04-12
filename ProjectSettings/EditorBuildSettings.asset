@@ -12,10 +12,19 @@ EditorBuildSettings:
     path: Assets/Scenes/Help.unity
     guid: 9a85651220fdfa04da44ae720616c2f2
   - enabled: 1
+    path: Assets/Scenes/Cellar.unity
+    guid: a889bc9b0511ca04282ca5d91ce68440
+  - enabled: 1
     path: Assets/Scenes/GameTest.unity
     guid: e2c2a8b6eb817ce40ada330bfa437cdb
   - enabled: 1
-    path: Assets/Scenes/CompleteLevel.unity
+    path: Assets/Scenes/Level1.unity
+    guid: d9a448f9d076ec949bc7da49eb80f2c6
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 79b0c7abcab8ada49a5d3759d04cddc9
+  - enabled: 1
+    path: Assets/Scenes/CompleteDungeon.unity
     guid: 806ba6916310d9e4e909927da8880593
   - enabled: 1
     path: Assets/Scenes/DungeonTest.unity
