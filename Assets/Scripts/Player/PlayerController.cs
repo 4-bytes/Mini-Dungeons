@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public Transform weapon;
 
     // *** Camera reference
-    private Camera gameCamera; 
+    // private Camera gameCamera; 
 
     // *** Animations
     public Animator animate;
@@ -61,12 +61,13 @@ public class PlayerController : MonoBehaviour
     private void Awake() // Executes as object exists in world
     {
         player = this; // Makes one single version of the instance, set player to this
+        DontDestroyOnLoad(gameObject); // Does not destroy the Player object when a new Scene loads 
     }
 
     // Start is called before the first frame update
     void Start() 
     {
-        gameCamera = Camera.main; // set to Camera.main at the start of level
+        // gameCamera = Camera.main; // set to Camera.main at the start of level **FOR TESTING**
         activeWalkSpeed = walkSpeed;
 
         UserInterfaceController.UIcontroller.currentGunImage.sprite = gunsList[currentGun].gunImage; // Get the current gun image from the gunsList and display in UI
@@ -90,7 +91,7 @@ public class PlayerController : MonoBehaviour
 
             // *** Mouse Inputs
             Vector3 mousePosition = Input.mousePosition; // Gets the current position of the mouse on-screen
-            Vector3 screenPointer = gameCamera.WorldToScreenPoint(transform.localPosition); // The current position of the player on-screen
+            Vector3 screenPointer = CameraController.cameraController.mainCamera.WorldToScreenPoint(transform.localPosition); // The current position of the player on-screen
 
             // Check what direction the player is facing - Right or Left
             if (mousePosition.x > screenPointer.x)

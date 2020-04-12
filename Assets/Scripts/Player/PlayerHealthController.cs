@@ -27,13 +27,18 @@ public class PlayerHealthController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHP = maxHP;
+        maxShield = DataManager.data.maxShield; // Retrieves player stats from dataManager 
+        currentShield = DataManager.data.currentShield;
+        maxHP = DataManager.data.maxHP;
+        currentHP = DataManager.data.currentHP;
+
+        // currentHP = maxHP;
 
         UserInterfaceController.UIcontroller.HPBar.maxValue = maxHP; // Sets maxValue of the HPBar to maxHP of player
         UserInterfaceController.UIcontroller.HPBar.value = currentHP; // Sets value to current health of player
         UserInterfaceController.UIcontroller.HPText.text = currentHP + "/" + maxHP;
 
-        currentShield = maxShield;
+        // currentShield = maxShield;
         UserInterfaceController.UIcontroller.shieldBar.maxValue = maxShield;
         UserInterfaceController.UIcontroller.shieldBar.value = currentShield;
         UserInterfaceController.UIcontroller.shieldText.text = currentShield + "/" + maxShield;
