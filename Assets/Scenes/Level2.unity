@@ -170,7 +170,7 @@ Camera:
   m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BackGroundColor: {r: 0.6117647, g: 0.6117647, b: 0.6117647, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -704,6 +704,20 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 248.6
       objectReference: {fileID: 0}
+    - target: {fileID: 1599088515, guid: 7a95e7ac3eb592e4c8d8bcf7668ad54d, type: 3}
+      propertyPath: m_Text
+      value: LEVEL 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4025861089572206313, guid: 7a95e7ac3eb592e4c8d8bcf7668ad54d,
+        type: 3}
+      propertyPath: m_Text
+      value: Cellar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093878768467143251, guid: 7a95e7ac3eb592e4c8d8bcf7668ad54d,
+        type: 3}
+      propertyPath: m_Text
+      value: Exit
+      objectReference: {fileID: 0}
     - target: {fileID: 7031623943428888802, guid: 7a95e7ac3eb592e4c8d8bcf7668ad54d,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -854,6 +868,11 @@ PrefabInstance:
       propertyPath: minimapBackground
       value: 
       objectReference: {fileID: 1511081658}
+    - target: {fileID: 7031623944349706767, guid: 7a95e7ac3eb592e4c8d8bcf7668ad54d,
+        type: 3}
+      propertyPath: newGame
+      value: Cellar
+      objectReference: {fileID: 0}
     - target: {fileID: 7031623944530136048, guid: 7a95e7ac3eb592e4c8d8bcf7668ad54d,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -908,6 +927,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 353386962, guid: bb90a3513eef69f4ebe5d4ec3bdc34d1, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 353386962, guid: bb90a3513eef69f4ebe5d4ec3bdc34d1, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982383565, guid: bb90a3513eef69f4ebe5d4ec3bdc34d1, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982383565, guid: bb90a3513eef69f4ebe5d4ec3bdc34d1, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6223639934413949850, guid: bb90a3513eef69f4ebe5d4ec3bdc34d1,
+        type: 3}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 6223639934246210794}
     - target: {fileID: 6223639934413949851, guid: bb90a3513eef69f4ebe5d4ec3bdc34d1,
         type: 3}
       propertyPath: levelName
@@ -975,3 +1015,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb90a3513eef69f4ebe5d4ec3bdc34d1, type: 3}
+--- !u!1 &6223639934246210792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6223639934413949854, guid: bb90a3513eef69f4ebe5d4ec3bdc34d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 6223639934246210791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6223639934246210793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6223639934246210792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9710973558b0d9147860f430d4a444a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursor: {fileID: 2800000, guid: 30df88ff04ff5664db310fa93b74d49a, type: 3}
+  cursorEnabled: 0
+--- !u!82 &6223639934246210794 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 353386962, guid: bb90a3513eef69f4ebe5d4ec3bdc34d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 6223639934246210791}
+  m_PrefabAsset: {fileID: 0}

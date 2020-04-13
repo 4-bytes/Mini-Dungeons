@@ -28,7 +28,7 @@ public class WeaponChest : MonoBehaviour
                 int randomPick = Random.Range(0, gunsList.Length); // Select a gun from list at random
 
                 Instantiate(gunsList[randomPick], spawnArea.position, spawnArea.rotation); // Instantiate the gun at the spawnArea
-
+                AudioController.audioManager.playSoundEffect(12);
                 sprite.sprite = openedChest; // Change the sprite to openedChest
 
                 // Play sound here

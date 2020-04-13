@@ -273,7 +273,12 @@ public class EnemyController : MonoBehaviour
 
             if (isOffensive == true) // Check if enemy has attacking behaviour
             {
-                chaseDistance = 30; // Once the player hits an enemy, make the enemy aggressive
+                chaseDistance = 30; // Once the player hits an enemy, make the enemy aggressive forever
+            }
+
+            if (isDefensive == true)
+            {
+                defenseDistance = 30; 
             }
 
             spriteBody.color = new Color(0.87f, 0.27f, 0.27f, 1f); // Add a hurt effect

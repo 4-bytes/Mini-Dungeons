@@ -26,7 +26,7 @@ public class FreeCharacter : MonoBehaviour
             {
                 PlayerPrefs.SetInt(characterToUnlock.playableCharacter.name, 1); // Save character name and int value (1) to PlayerPrefs
                 
-                Instantiate(characterToUnlock, transform.position, transform.rotation);
+                // Instantiate(characterToUnlock, transform.position, transform.rotation);
 
                 gameObject.SetActive(false);
             }

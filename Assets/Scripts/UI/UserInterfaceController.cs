@@ -14,6 +14,7 @@ public class UserInterfaceController : MonoBehaviour
 
     // *** Main User Interface
     public Image pauseButton;
+    public Image pauseButtonIcon;
     // The HP Bar properties
     public Slider HPBar;
     public Text HPText;
@@ -27,6 +28,7 @@ public class UserInterfaceController : MonoBehaviour
     public Text currentGunText;
 
     // Minimap
+    public Image mapIcon;
     public GameObject minimap;
     public GameObject minimapBackground;
 
@@ -42,6 +44,15 @@ public class UserInterfaceController : MonoBehaviour
     private bool fadeIn;
     private bool fadeOut;
 
+    //Scene name fade text
+    public Text fadeText;
+    public float textFadeTime;
+    private bool textFadeIn;
+    private bool textFadeOut;
+
+    //Invincible Text
+    public GameObject invincible;
+
     
     public void Awake()
     {
@@ -53,6 +64,10 @@ public class UserInterfaceController : MonoBehaviour
     {
         fadeOut = true; // At start, make fade out from black background
         fadeIn = false;
+
+        //
+        textFadeOut = true;
+        textFadeIn = false;
 
         currentGunImage.sprite = PlayerController.player.gunsList[PlayerController.player.currentGun].gunImage; 
         currentGunText.text = PlayerController.player.gunsList[PlayerController.player.currentGun].gunName;
@@ -81,14 +96,35 @@ public class UserInterfaceController : MonoBehaviour
             }
 
         }
+
+        if (textFadeOut == true)
+        {
+            fadeText.color = new Color(fadeText.color.r, fadeText.color.g, fadeText.color.b, Mathf.MoveTowards(fadeText.color.a, 0f, textFadeTime * Time.deltaTime));
+
+            if (fadeText.color.a == 0f)
+            {
+                textFadeOut = false; // Set to false once the background has faded
+            }
+        }
+
+        if (textFadeIn == true)
+        {
+            fadeText.color = new Color(fadeText.color.r, fadeText.color.g, fadeText.color.b, Mathf.MoveTowards(fadeText.color.a, 1f, textFadeTime * Time.deltaTime));
+
+            if (fadeText.color.a == 1f)
+            {
+                textFadeIn = false;
+            }
+
+        }
     }
 
     public void loadNewGame() // Loads new game
     {
         Time.timeScale = 1f; // Reset time back to normal when new game is loaded
-
         SceneManager.LoadScene(newGame);
         Destroy(PlayerController.player.gameObject); // Destroy the player object when new game is made
+        CustomCursor.customCursor.SetCursor(); // Set the game cursor
     }
 
     public void exitGame() // Exits back to main menu

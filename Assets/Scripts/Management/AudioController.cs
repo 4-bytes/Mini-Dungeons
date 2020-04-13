@@ -8,9 +8,6 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     public static AudioController audioManager;
-    public bool playMusic = true;
-    public bool playSound = true;
-
     public AudioSource levelMusic;
     public AudioSource deathMusic;
     public AudioSource victoryMusic;
@@ -48,6 +45,7 @@ public class AudioController : MonoBehaviour
 
         victoryMusic.Play();
     }
+
 
     public void playSoundEffect(int index)
     {

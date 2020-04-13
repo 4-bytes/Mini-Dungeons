@@ -32,8 +32,8 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var scroll = Input.GetAxis("Mouse ScrollWheel");
-        if (scroll < 0f)
+        // var scroll = Input.GetAxis("Mouse ScrollWheel");
+        /*if (scroll < 0f)
         {
             Camera.main.orthographicSize = Camera.main.orthographicSize + 15 * Time.deltaTime;
             if (Camera.main.orthographicSize > 6)
@@ -61,6 +61,7 @@ public class CameraController : MonoBehaviour
             else
             {
                 closeFullMap();
+                UserInterfaceController.UIcontroller.mapIcon.enabled = true; // Enable mapIcon
             }
         }
 
@@ -83,6 +84,8 @@ public class CameraController : MonoBehaviour
             fullMapCamera.enabled = true; // Enable full map camera
             mainCamera.enabled = false; // Disable mainCamera
             UserInterfaceController.UIcontroller.minimap.SetActive(false); // Make minimap inactive
+            UserInterfaceController.UIcontroller.mapIcon.enabled = false; // Turn off the mapIcon
+            CustomCursor.customCursor.OnDisable(); // Disables the aiming cursor
             UserInterfaceController.UIcontroller.minimapBackground.SetActive(false); 
             PlayerController.player.isActivated = false; // When fullmap is opened, player controls will be disabled
             Time.timeScale = 0f; // Freeze time so that nothing else moves
@@ -102,6 +105,8 @@ public class CameraController : MonoBehaviour
             fullMapCamera.enabled = false; // Disable full map camera
             mainCamera.enabled = true; // Enable mainCamera
             UserInterfaceController.UIcontroller.minimap.SetActive(true); // Activate minimap
+            UserInterfaceController.UIcontroller.mapIcon.enabled = true; // Turn off the mapIcon
+            CustomCursor.customCursor.SetCursor(); // Enables the aiming cursor
             UserInterfaceController.UIcontroller.minimapBackground.SetActive(true);
             PlayerController.player.isActivated = true; // Enable player controls when fullmap is closed
             Time.timeScale = 1f; // Freeze time so that nothing else moves

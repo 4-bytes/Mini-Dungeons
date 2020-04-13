@@ -45,8 +45,10 @@ public class LevelManagement : MonoBehaviour
     {
         if (!isPaused == true) // If the game isnt paused then pause it
         {
+            CustomCursor.customCursor.OnDisable();
             UserInterfaceController.UIcontroller.pauseUI.SetActive(true);
             UserInterfaceController.UIcontroller.pauseButton.enabled = false;
+            UserInterfaceController.UIcontroller.pauseButtonIcon.enabled = false;
             isPaused = true;
 
             pauseTime(0f);
@@ -54,10 +56,12 @@ public class LevelManagement : MonoBehaviour
         }
         else // Otherwise it is paused so unpause it
         {
+            CustomCursor.customCursor.SetCursor();
             resumeLevel();
 
             isPaused = false;
             UserInterfaceController.UIcontroller.pauseButton.enabled = true;
+            UserInterfaceController.UIcontroller.pauseButtonIcon.enabled = true;
             pauseTime(1f);
         }
     }
@@ -76,6 +80,7 @@ public class LevelManagement : MonoBehaviour
     public IEnumerator exitDungeon() // Coroutine
     {
         // AudioManager.instance.PlayVictory();
+        AudioController.audioManager.playVictoryMusic();
         PlayerController.player.isActivated = false;
 
         UserInterfaceController.UIcontroller.startFadeIn(); // Fading background
@@ -86,6 +91,7 @@ public class LevelManagement : MonoBehaviour
         DataManager.data.currentShield = PlayerHealthController.playerHealth.currentShield;
         DataManager.data.maxHP = PlayerHealthController.playerHealth.maxHP;
         DataManager.data.maxShield = PlayerHealthController.playerHealth.maxShield;
+
         SceneManager.LoadScene(levelName);
 
 

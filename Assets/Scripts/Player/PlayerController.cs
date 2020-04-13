@@ -172,6 +172,9 @@ public class PlayerController : MonoBehaviour
                     jumpCounter = jumpLength; // Begin the jumpCounter
                     animate.SetTrigger("Jump"); // Perform the jump animation when the ability is triggered
                     PlayerHealthController.playerHealth.makeInvincible(jumpInvincibility);
+                    // print("tes");
+                    UserInterfaceController.UIcontroller.invincible.SetActive(true); // Enable the animated text
+                    AudioController.audioManager.playSoundEffect(9);
                     Time.timeScale = 0.6f; // Slow down time
                     // Play sound 
                 }
@@ -184,7 +187,9 @@ public class PlayerController : MonoBehaviour
                 if (jumpCounter <= 0) // Check if the jumpCounter has run out, then deactivate it
                 {
                     activeWalkSpeed = walkSpeed; // Set the active back to normal speed
+                    UserInterfaceController.UIcontroller.invincible.SetActive(false); // Disable animated text
                     Time.timeScale = 1f;
+
                     jumpCooldownCounter = jumpCooldown; // Start counting once the jump ends
                 }
             }

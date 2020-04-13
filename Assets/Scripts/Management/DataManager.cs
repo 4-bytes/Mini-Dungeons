@@ -12,7 +12,6 @@ public class DataManager : MonoBehaviour
     public int currentShield;
     public int maxShield;
     public int playerCoins;
-
     // Start is called before the first frame update
 
 

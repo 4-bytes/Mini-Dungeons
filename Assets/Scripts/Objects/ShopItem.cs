@@ -38,7 +38,7 @@ public class ShopItem : MonoBehaviour
                 if (LevelManagement.manager.playerCoins >= itemPrice) // Check if they have enough coins to make purchase
                 {
                     LevelManagement.manager.useCoins(itemPrice);
-
+                    AudioController.audioManager.playSoundEffect(11); // Play the purchase sound
                     if (healthRegen == true) // Check what kind of item they are trying to buy
                     {
                         PlayerHealthController.playerHealth.regenPlayer(PlayerHealthController.playerHealth.maxHP, "ShopItemHealth"); 
@@ -56,11 +56,11 @@ public class ShopItem : MonoBehaviour
 
                     gameObject.SetActive(false); // After purchase is complete, disable the item
                     triggered = false; // Disables item purchase forever
-                    // Play sound effect
+                    
                 }
                 else
                 {
-                    // Play "not enough coins" sound effect
+                    // Play sound effect
                 }
             }
         }   

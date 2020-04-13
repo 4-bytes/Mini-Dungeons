@@ -33,7 +33,7 @@ public class LevelComplete : MonoBehaviour
             }
             else
             {
-                if (Input.anyKeyDown)
+                if (Input.anyKeyDown) // Once countdown is over, any key pressed or buttons pressed will navigate to next scene
                 {
                     continueLevel();
                 }

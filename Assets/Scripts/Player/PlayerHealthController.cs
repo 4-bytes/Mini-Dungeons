@@ -74,6 +74,7 @@ public class PlayerHealthController : MonoBehaviour
                 currentShield = currentShield - 1;
 
                 PlayerController.player.animate.SetTrigger("Hurt"); // Play the hurt animation
+                AudioController.audioManager.playSoundEffect(10); // Play the hurt sound
                 PlayerController.player.bodySprite.color = new Color(0.87f, 0.27f, 0.27f, 1f); // Adds a hurt effect to the player
                 UserInterfaceController.UIcontroller.shieldBar.value = currentShield; // Updates the values
                 UserInterfaceController.UIcontroller.shieldText.text = currentShield + "/" + maxShield;
@@ -86,10 +87,13 @@ public class PlayerHealthController : MonoBehaviour
                 if (currentHP <= 0) // 
                 {
                     PlayerController.player.gameObject.SetActive(false);
-
+                    // Play death sound
+                    CustomCursor.customCursor.OnDisable();
                     UserInterfaceController.UIcontroller.deathUI.SetActive(true);
+
                 }
                 PlayerController.player.animate.SetTrigger("Hurt"); // Play the hurt animation
+                AudioController.audioManager.playSoundEffect(10); // Play the hurt sound
                 PlayerController.player.bodySprite.color = new Color(0.87f, 0.27f, 0.27f, 1f);
                 UserInterfaceController.UIcontroller.HPBar.value = currentHP; // Update values after each hit
                 UserInterfaceController.UIcontroller.HPText.text = currentHP + "/" + maxHP;

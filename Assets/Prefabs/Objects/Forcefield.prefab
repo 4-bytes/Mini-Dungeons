@@ -459,5 +459,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prompt: {fileID: 549429723}
-  characterPicker: []
+  characterPicker:
+  - {fileID: 933624742, guid: f10f55633c5adda4eb0da73451010825, type: 3}
+  - {fileID: 45824815, guid: e12542f7f88e9b7429b4d33483eb5671, type: 3}
+  - {fileID: 9202044165789243567, guid: e011011e8478ed6488dfc5fb5a4613ef, type: 3}
+  - {fileID: 4031820721081889470, guid: c44dff1cbc489cb4bab0349b16bb3f00, type: 3}
   sprite: {fileID: 443488135}
