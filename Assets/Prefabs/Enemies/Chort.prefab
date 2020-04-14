@@ -59,8 +59,8 @@ MonoBehaviour:
   deathScream: 7
   hitParticle: {fileID: 6058813507365275155, guid: eabf65e5891cca442baf6c77d449510e,
     type: 3}
-  coinsDrop: 0
-  coinsDropRate: 0
+  coinsDrop: 3
+  coinsDropRate: 100
   canRandomPatrol: 0
   patrolLength: 0
   patrolPause: 0

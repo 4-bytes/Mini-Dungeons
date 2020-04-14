@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunsList:
-  - {fileID: 1194099880323621161, guid: 455c8b1f15d9c5a4b8850d07af13922e, type: 3}
+  - {fileID: 8231817225127763880, guid: fdc17d56a66c58642a1107ba6b949bdf, type: 3}
   - {fileID: 484135020984930791, guid: 58f8895880141d94d8aa4e872b345d8b, type: 3}
   sprite: {fileID: 3388595198352356266}
   openedChest: {fileID: 21300000, guid: 120f1b49938331e40b4808b4d35357a0, type: 3}
