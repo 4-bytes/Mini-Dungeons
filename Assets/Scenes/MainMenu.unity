@@ -2094,6 +2094,11 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1578272113945542085, guid: b741599585dd9df47b5d490ee9736959,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 69f77c2238c6a984fa1e4f6b7f340c4a, type: 3}
     - target: {fileID: 1578272113945542086, guid: b741599585dd9df47b5d490ee9736959,
         type: 3}
       propertyPath: m_Name
@@ -3911,7 +3916,8 @@ MonoBehaviour:
   - {fileID: 45824815, guid: e12542f7f88e9b7429b4d33483eb5671, type: 3}
   - {fileID: 9202044165789243567, guid: e011011e8478ed6488dfc5fb5a4613ef, type: 3}
   - {fileID: 4031820721081889470, guid: c44dff1cbc489cb4bab0349b16bb3f00, type: 3}
-  audio: {fileID: 1021876769}
+  - {fileID: 4161829617105914930, guid: 32a4e26fb6d05594c8f7ca82918430e0, type: 3}
+  audioMusic: {fileID: 1021876769}
 --- !u!1 &1881527066
 GameObject:
   m_ObjectHideFlags: 0
