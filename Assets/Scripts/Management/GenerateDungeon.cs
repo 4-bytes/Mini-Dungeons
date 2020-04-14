@@ -12,7 +12,7 @@ public class GenerateDungeon : MonoBehaviour
     public bool hasShop; // Does the dungeon level contain a shop
     public int minDistShop;
     public int maxDistShop;
-    // For minimap
+    // For minimap display
     public Color start; // Starting Room Color
     public Color end; // End Room Color
     public Color shop; // Shop Color 
@@ -43,6 +43,7 @@ public class GenerateDungeon : MonoBehaviour
     public RoomMiddle middleStart; // The starting room
     public RoomMiddle middleEnd; // The ending room 
     public RoomMiddle middleShop; // The shop   
+
 
     // Start is called before the first frame update
     void Start()
@@ -130,7 +131,9 @@ public class GenerateDungeon : MonoBehaviour
                 }
             }
 
+            Random.InitState(System.DateTime.Now.Millisecond); // The random seed will always be different every time
             int randomInt = Random.Range(0, middlesList.Length); // Randomly pick a middle and assign to roomLayout
+            
 
             if (middleStartEndAssigned == false) // If middleStart was not assigned, then generate a random middle
             {

@@ -5,7 +5,7 @@ using UnityEngine.UI; // Access UI elements of Unity
 using UnityEngine.SceneManagement;
 public class UserInterfaceController : MonoBehaviour
 {
-    // Creates a UIcontroller and references UI elements which are used in other scripts
+    // Creates a UIcontroller, references UI elements which are used in other scripts and executes UI elements when needed
 
     public static UserInterfaceController UIcontroller;
 
@@ -53,6 +53,10 @@ public class UserInterfaceController : MonoBehaviour
     //Invincible Text
     public GameObject invincible;
 
+    //RoomCleared tex
+    public GameObject roomCleared;
+    public float roomClearedTime;
+
     
     public void Awake()
     {
@@ -65,12 +69,14 @@ public class UserInterfaceController : MonoBehaviour
         fadeOut = true; // At start, make fade out from black background
         fadeIn = false;
 
-        //
+        
         textFadeOut = true;
         textFadeIn = false;
 
         currentGunImage.sprite = PlayerController.player.gunsList[PlayerController.player.currentGun].gunImage; 
         currentGunText.text = PlayerController.player.gunsList[PlayerController.player.currentGun].gunName;
+
+        // this.StartCoroutine(this.displayRoomCleared()); test
     }
 
     // Update is called once per frame
@@ -145,5 +151,13 @@ public class UserInterfaceController : MonoBehaviour
     {
         fadeIn = true;
         fadeOut = false;
+    }
+
+    public IEnumerator displayRoomCleared() // Display the roomcleared text once a dungeon room has been cleared of enemies
+    {
+        roomCleared.SetActive(true); // Enable game object
+        var anim = roomCleared.GetComponent<Animator>(); // Animator reference
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length + anim.GetCurrentAnimatorStateInfo(0).normalizedTime); // Wait until the animation finishes properly
+        roomCleared.SetActive(false); // Disable game object
     }
 }

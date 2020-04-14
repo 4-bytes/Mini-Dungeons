@@ -7,11 +7,14 @@ public class DataManager : MonoBehaviour
     // Manages data between scenes
     public static DataManager data;
 
-    public int currentHP;
+    public int currentHP; 
     public int maxHP;
     public int currentShield;
     public int maxShield;
     public int playerCoins;
+
+    //public PlayerController currentPlayer; // Keeps track of the current selected character
+    //public GameObject position; // The position to spawn the currentPlayer
     // Start is called before the first frame update
 
 
@@ -22,7 +25,8 @@ public class DataManager : MonoBehaviour
 
     void Start()
     {
-       
+        // PlayerController hero = Instantiate(currentPlayer, position.transform.position, currentPlayer.transform.rotation);
+        // CameraController.cameraController.targetPosition = hero.transform;
     }
 
     // Update is called once per frame

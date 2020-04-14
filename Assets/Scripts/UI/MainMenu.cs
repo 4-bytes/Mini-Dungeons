@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
     public GameObject deletedGamePrompt; // Displays once game data was deleted 
     public PlayerChanger[] characterList; // List of characters
 
-    public new AudioSource audio;
+    public AudioSource audioMusic;
     // Handles Main Menu UI
     // Start is called before the first frame update
     void Start()
@@ -52,14 +52,14 @@ public class MainMenu : MonoBehaviour
     {
         if (AudioListener.volume == 1) // If the audio source is already running then turn it off
         {
-            audio.enabled = false;
+            audioMusic.enabled = false;
             AudioListener.volume = 0; // Set global volume to 0
             soundActiveButton.SetActive(false);
             soundInactiveButton.SetActive(true);
         }
         else
         {
-            audio.enabled = true;
+            audioMusic.enabled = true;
             AudioListener.volume = 1;
             soundActiveButton.SetActive(true);
             soundInactiveButton.SetActive(false);

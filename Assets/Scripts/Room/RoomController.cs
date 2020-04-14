@@ -52,6 +52,8 @@ public class RoomController : MonoBehaviour
         {
             roomDoor.SetActive(false); // Make all the doors of the room deactive
             closeOnEnter = false; // Make the rooms doors always open
+            StartCoroutine(UserInterfaceController.UIcontroller.displayRoomCleared()); // Play the cleared room animation
+            AudioController.audioManager.playSoundEffect(15);
         }
     }
 

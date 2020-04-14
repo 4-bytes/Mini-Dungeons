@@ -43,11 +43,13 @@ public class PlayerChanger : MonoBehaviour
                 Destroy(PlayerController.player.gameObject); // Destroy the current player
                 PlayerController newCharacter = Instantiate(playableCharacter, playerCurrentPosition, playableCharacter.transform.rotation); // Instantiate the new character to play as
                 PlayerController.player = newCharacter; // Assign the newCharacter to be the instance of the PlayerController
+                AudioController.audioManager.playSoundEffect(13); // Play character change sound
                 // Deactivate the character switcher because they are playing as this character already
                 gameObject.SetActive(false);
 
                 // Make camera follow the new character
                 CameraController.cameraController.targetPosition = newCharacter.transform;
+                //DataManager.data.currentPlayer = newCharacter;
 
                 CharacterManager.manager.currentPlayer = newCharacter; // Set the currentPlayer as the new Character selected
                 CharacterManager.manager.activePlayerChanger.gameObject.SetActive(true); // Make the last active character selected as active (Reset characters)

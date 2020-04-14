@@ -27,9 +27,11 @@ public class WallArrow : MonoBehaviour
 
             if (fireRateCounter <= 0) // Reset the counter if it gets to zero or less
             {
+                AudioController.audioManager.playSoundEffect(16); // Play sound
                 fireRateCounter = fireRate;
                 Instantiate(bullet, bulletPoint.position, bulletPoint.rotation); // Create a new bullet at the bulletPoint
-                // Play sound
+                
+                
             }
         }
     }

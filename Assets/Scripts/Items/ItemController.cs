@@ -31,24 +31,28 @@ public class ItemController : MonoBehaviour
         {
             int amount = 5;
             PlayerHealthController.playerHealth.regenPlayer(amount, item.name); // Regen the player by calling PlayerHealthController
+            AudioController.audioManager.playSoundEffect(0); // Play the collected sound
             Destroy(gameObject); // Remove the object after item collected
         }
         if (collision.tag == "Player" && item.name == "ItemHealthSmall(Clone)" && itemCollectDelay <= 0)
         {
             int amount = 5;
             PlayerHealthController.playerHealth.regenPlayer(amount, item.name);
+            AudioController.audioManager.playSoundEffect(0);
             Destroy(gameObject);
         }
         if (collision.tag == "Player" && item.name == "ItemShieldLarge(Clone)" && itemCollectDelay <= 0)
         {
             int amount = 10;
             PlayerHealthController.playerHealth.regenPlayer(amount, item.name);
+            AudioController.audioManager.playSoundEffect(0);
             Destroy(gameObject);
         }
         if (collision.tag == "Player" && item.name == "ItemHealthLarge(Clone)" && itemCollectDelay <= 0)
         {
             int amount = 10;
             PlayerHealthController.playerHealth.regenPlayer(amount, item.name);
+            AudioController.audioManager.playSoundEffect(0);
             Destroy(gameObject);
         }
         if (collision.tag == "Player" && item.name == "ItemCoin(Clone)" && itemCollectDelay <= 0)

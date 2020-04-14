@@ -43,13 +43,26 @@ public class PlayerBullet : MonoBehaviour
         if (collision.tag == "Enemy") // Checks if the collision was with the tag "Enemy" assigned to it
         {
             collision.GetComponent<EnemyController>().HitEnemy(bulletDamage); // On the other collider, get the enemyController script and execute hitEnemy function
+            // enemy knockback
+            Rigidbody2D enemy = collision.GetComponent<Rigidbody2D>();
+            if (enemy != null)
+            {
+                StartCoroutine(knockback(enemy));
+            }  
             // collision.GetComponent<EnemyController>().spriteBody.color = new Color(0.87f, 0.27f, 0.27f, 1f);
             //StartCoroutine(delay()); // Delays for some time
             // collision.GetComponent<EnemyController>().spriteBody.color = new Color(1f, 1f, 1f, 1f); // resets enemy back to normal 
-
         }
+    }
 
+    private IEnumerator knockback(Rigidbody2D enemy)
+    {
 
+        Vector2 forceDirection = enemy.transform.position - transform.position;
+        Vector2 force = forceDirection.normalized * 15;
+        enemy.velocity = force;
+        yield return new WaitForSeconds(.3f);
+        enemy.velocity = new Vector2();
     }
 
 

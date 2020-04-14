@@ -81,8 +81,8 @@ public class PlayerController : MonoBehaviour
         if (isActivated && LevelManagement.manager.isPaused == false) // If the player's controls are activated then do the following...
         {
             // *** Movement
-            walkInput.x = Input.GetAxis("Horizontal"); // MoveInput x element is set to the Input.GetAxis horizontal control
-            walkInput.y = Input.GetAxis("Vertical"); // MoveInput y element is set to the Input.GetAxis vertical control
+            walkInput.x = Input.GetAxisRaw("Horizontal"); // MoveInput x element is set to the Input.GetAxis horizontal control
+            walkInput.y = Input.GetAxisRaw("Vertical"); // MoveInput y element is set to the Input.GetAxis vertical control
             walkInput.Normalize(); // Makes the walking speed consistent even if player moves diagonally
                                    // transform.position = transform.position + new Vector3(walkInput.x * Time.deltaTime * walkSpeed, walkInput.y * Time.deltaTime * walkSpeed, 0f); // updates the current pos using x,y values
                                    // walkInput.x * Time.Delta allows consistent walking at different frames, walkSpeed makes it faster 
@@ -172,11 +172,10 @@ public class PlayerController : MonoBehaviour
                     jumpCounter = jumpLength; // Begin the jumpCounter
                     animate.SetTrigger("Jump"); // Perform the jump animation when the ability is triggered
                     PlayerHealthController.playerHealth.makeInvincible(jumpInvincibility);
-                    // print("tes");
                     UserInterfaceController.UIcontroller.invincible.SetActive(true); // Enable the animated text
-                    AudioController.audioManager.playSoundEffect(9);
+                    AudioController.audioManager.playSoundEffect(9); // Play the fire sound effect
                     Time.timeScale = 0.6f; // Slow down time
-                    // Play sound 
+                    
                 }
 
             }

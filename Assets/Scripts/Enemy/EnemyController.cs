@@ -281,6 +281,11 @@ public class EnemyController : MonoBehaviour
                 defenseDistance = 30; 
             }
 
+            if (isSummoner == true)
+            {
+            summonRange = 30;
+            }
+            
             spriteBody.color = new Color(0.87f, 0.27f, 0.27f, 1f); // Add a hurt effect
             hitCounter = hitTime; // Start the counter which will be used to tell how long the effect lasts
             Instantiate(hitParticle, transform.position, transform.rotation); // Create a hit particle 
@@ -309,5 +314,7 @@ public class EnemyController : MonoBehaviour
             }
 
         }
+
+
     
 }
