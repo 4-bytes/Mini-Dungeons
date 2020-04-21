@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelManagement : MonoBehaviour
 {
+    // Manages the dungeon level such as moving from one level to next, game paused, buying things etc
+
     public static LevelManagement manager;
     public Transform spawnPoint; // Where to spawn the player
 

@@ -25,9 +25,9 @@ public class EnemyBullet : MonoBehaviour
     {
         transform.position = transform.position + direction * bulletSpeed * Time.deltaTime; // Make the bullet move towards direction
 
-        if (rotate == true)
+        if (rotate == true) 
         {
-            gameObject.transform.Rotate(new Vector3(0, 0, 1f));
+            gameObject.transform.Rotate(new Vector3(0, 0, 1f)); // Makes the bullet rotate
         }
     }
 

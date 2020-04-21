@@ -147,10 +147,12 @@ public class GenerateDungeon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /* For testing generated dungeons 
         if (Input.GetKey(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        */
     }
 
     public void createRoomLayout(Vector3 position) // Creates a room layout for each room

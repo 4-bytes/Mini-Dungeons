@@ -268,9 +268,9 @@ MonoBehaviour:
   summonPoint: {fileID: 485759816094218944}
   summonObject: {fileID: 6076036753047430717, guid: 23c65f2067c1b264ca5ccbb7ce744be9,
     type: 3}
-  summonLimit: 5
+  summonLimit: 2
   summonRange: 5
-  summonRate: 1.5
+  summonRate: 2
   animate: {fileID: 2919783921650781005}
 --- !u!50 &2919783921650781007
 Rigidbody2D:

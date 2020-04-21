@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Manages the player object
+    // Manages the player object such as movement, available guns, animations etc
 
     // *** PlayerController
     public static PlayerController player; // Set for all playerControllers
@@ -19,27 +19,14 @@ public class PlayerController : MonoBehaviour
     private float restStart;
     private float restLength;
 
-
     // *** 2D Physics
     public Rigidbody2D rigidBody;
 
     // *** Weapon reference
     public Transform weapon;
 
-    // *** Camera reference
-    // private Camera gameCamera; 
-
     // *** Animations
     public Animator animate;
-
-                                // *** Projectile
-    //public GameObject bulletObject; // The bullet to fire
-    //public Transform bulletPoint;  // The position to fire from
-
-                                // *** Shooting
-    
-    //public float fireRate; // The rate of fire for a weapon
-    // private float fireRateCounter; // Keeps track of fireRate counts
 
     public SpriteRenderer bodySprite;
 
@@ -80,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
         if (isActivated && LevelManagement.manager.isPaused == false) // If the player's controls are activated then do the following...
         {
-            // *** Movement
+            // *** Movement 
             walkInput.x = Input.GetAxisRaw("Horizontal"); // MoveInput x element is set to the Input.GetAxis horizontal control
             walkInput.y = Input.GetAxisRaw("Vertical"); // MoveInput y element is set to the Input.GetAxis vertical control
             walkInput.Normalize(); // Makes the walking speed consistent even if player moves diagonally
@@ -115,7 +102,7 @@ public class PlayerController : MonoBehaviour
             weapon.rotation = Quaternion.Euler(0, 0, angle); // Converts z to new vector3 value
 
 
-            /* // *** Firing bullets with Mousebutton (moved to PlayerGun script)
+            /* // *** Firing bullets with Mousebutton (move to PlayerGun script)
             if (Input.GetMouseButtonDown(0)) // Make a bullet appear single click if left MB is pressed
             {
                 Instantiate(bulletObject, bulletPoint.position, bulletPoint.rotation); // Create new bullet object
@@ -131,6 +118,8 @@ public class PlayerController : MonoBehaviour
                 }
             } */
 
+
+            // *** Change weapon based on gunsList
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (gunsList.Count > 0)
@@ -220,7 +209,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    public void changeGun()
+    public void changeGun() // Allows the player to change the gun if it is in their inventory
     {
         for (int i = 0; i < gunsList.Count; i++)
         {

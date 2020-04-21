@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerChanger : MonoBehaviour
 {
+    // Allows the player to change their current character into another character
+
     private bool triggered; // Checks if the character can be playable
     public GameObject prompt; // The message
     public PlayerController playableCharacter; // Know what character to spawn in game

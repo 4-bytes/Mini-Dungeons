@@ -120,10 +120,10 @@ public class EnemyController : MonoBehaviour
                     }
                 
 
-                    if (Vector3.Distance(transform.position, route[currentPoint].position) < .1f)
+                    if (Vector3.Distance(transform.position, route[currentPoint].position) < .1f) // Checks for enemy current route position
                     {
                         currentPoint = currentPoint + 1; // Increase it
-                        if (currentPoint >= route.Length)
+                        if (currentPoint >= route.Length) // Checks if the end of the route length has been reached
                         {
                             currentPoint = 0; // Reset it
                         }
