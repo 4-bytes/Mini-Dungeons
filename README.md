@@ -7,7 +7,7 @@ This is a fast-paced and action-packed 2D arcade-style shooting game where the m
 # Gameplay
 Some of the gameplay mechanics are shown below. <br>
 
-![Gameplay 1](https://github.com/4-bytes/Mini-Dungeons/blob/master/gifs/gameplay1.gif)
+![Gameplay 1](https://github.com/4-bytes/Mini-Dungeons/blob/master/gifs/gameplay1.gif) 
 
 ![Gameplay 2](https://github.com/4-bytes/Mini-Dungeons/blob/master/gifs/gameplay2.gif)
 
@@ -17,23 +17,22 @@ Some of the gameplay mechanics are shown below. <br>
 
 ![Gameplay 5](https://github.com/4-bytes/Mini-Dungeons/blob/master/gifs/gameplay5.gif)
 
-# Setup Instructions
-If you are running the game from a Unity Project, ensure that the display settings are set to 1920x1080 (fixed resolution)
-so that the game runs as expected even on different screen sizes and the scenes are fully visible. The main playable scene is called MainMenu, and the game should be run starting from this scene. Alternatively, you can publish as a build by going to <b>File > Build Settings.</b>
 
+# Setup Instructions
+Simply clone this repository and open the project in Unity. If you are running the game from a Unity Project, ensure that the display settings are set to 1920x1080 (fixed resolution) so that the game runs as expected even on different screen sizes and the scenes are fully visible. The main playable scene is called MainMenu, and the game should be run starting from this scene. Alternatively, you can publish as a build by going to <b>File > Build Settings.</b>
 
 
 # Credits
 Most of the assets that have been used to create this game are open-source and the links to them can be found below.
 
-Graphics/Art used:
-Free Pixel Font (Thaleah Fat) - https://tinyworlds.itch.io/free-pixel-font-thaleah <br>
-Dungeon Tileset - https://0x72.itch.io/16x16-dungeon-tileset <br>
-Dungeon Tileset II - https://0x72.itch.io/dungeontileset-ii <br>
-Flame Animated - https://lelex-game-and-art-maker.itch.io/fire-animated <br>
-Keyboard controller keys - https://hyohnoo.itch.io/keyboard-controller-keys <br>
+Graphics/Art used: <br>
+https://tinyworlds.itch.io/free-pixel-font-thaleah <br>
+https://0x72.itch.io/16x16-dungeon-tileset <br>
+https://0x72.itch.io/dungeontileset-ii <br>
+https://lelex-game-and-art-maker.itch.io/fire-animated <br>
+https://hyohnoo.itch.io/keyboard-controller-keys <br>
 
-Audio used:
+Audio used:<br>
 https://opengameart.org/content/win-music-3 <br>
 https://opengameart.org/content/2-wooden-squish-splatter-sequences <br>
 http://mrjoshuamclean.com/royalty-free-music/ <br>
