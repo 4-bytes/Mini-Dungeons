@@ -1,7 +1,7 @@
 # About
 ![Title](https://github.com/4-bytes/Mini-Dungeons/blob/master/gifs/title.gif)
 
-This is a fast-paced and action-packed 2D arcade-style shooting game where the main objective is to adventure as deep into the dungeon as possible and progress through a variety of levels with varying complexity and challenges. 
+This is a fast-paced and action-packed 2D arcade-style shooting game where the main objective is to adventure as deep into the dungeon as possible and progress through a variety of levels with varying complexity and challenges. The game features include a number of different playable characters, some are locked from the start of the game. There are also a wide variety of enemies that can be encountered, each has its own unique behaviours and characteristics. The rooms in a dungeon are procedurally generated, and these rooms may have enemies, traps or chests that can be interacted with. The further into the dungeon the player explores, the levels increase in difficulty. 
 
 
 # Screenshots
