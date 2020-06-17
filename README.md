@@ -1,5 +1,5 @@
 # Mini-Dungeons
 
 
-![Gameplay 1] (https://raw.githubusercontent.com/4-bytes/Mini-Dungeons/master/gifs/gameplay1.gif?token=AIXSUMT2WUHRQSRTF3VW3NK65J42U)
+![Gameplay 1](https://github.com/4-bytes/Mini-Dungeons/blob/master/gifs/gameplay1.gif)
 
