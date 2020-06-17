@@ -4,7 +4,7 @@
 This is a fast-paced and action-packed 2D arcade-style shooting game where the main objective is to adventure as deep into the dungeon as possible and progress through a variety of levels with varying complexity and challenges. 
 
 
-# Gameplay
+# Screenshots
 Some of the gameplay mechanics are shown below. <br>
 
 ![Gameplay 1](https://github.com/4-bytes/Mini-Dungeons/blob/master/gifs/gameplay1.gif) 
@@ -16,7 +16,6 @@ Some of the gameplay mechanics are shown below. <br>
 ![Gameplay 4](https://github.com/4-bytes/Mini-Dungeons/blob/master/gifs/gameplay4.gif)
 
 ![Gameplay 5](https://github.com/4-bytes/Mini-Dungeons/blob/master/gifs/gameplay5.gif)
-
 
 # Setup Instructions
 Simply clone this repository and open the project in Unity. If you are running the game from a Unity Project, ensure that the display settings are set to 1920x1080 (fixed resolution) so that the game runs as expected even on different screen sizes and the scenes are fully visible. The main playable scene is called MainMenu, and the game should be run starting from this scene. Alternatively, you can publish as a build by going to <b>File > Build Settings.</b>
@@ -33,9 +32,9 @@ https://lelex-game-and-art-maker.itch.io/fire-animated <br>
 https://hyohnoo.itch.io/keyboard-controller-keys <br>
 
 Audio used:<br>
+http://mrjoshuamclean.com/royalty-free-music/ <br>
 https://opengameart.org/content/win-music-3 <br>
 https://opengameart.org/content/2-wooden-squish-splatter-sequences <br>
-http://mrjoshuamclean.com/royalty-free-music/ <br>
 https://opengameart.org/content/512-sound-effects-8-bit-style<br>
 https://opengameart.org/content/stone-fortress <br>
 http://soundbible.com/1359-Small-Fireball.html <br>
