@@ -18,7 +18,7 @@ Some of the gameplay mechanics are shown below. <br>
 ![Gameplay 5](https://github.com/4-bytes/Mini-Dungeons/blob/master/gifs/gameplay5.gif)
 
 # Setup Instructions
-Simply clone this repository and open the project in Unity. If you are running the game from a Unity Project, ensure that the display settings are set to 1920x1080 (fixed resolution) so that the game runs as expected even on different screen sizes and the scenes are fully visible. The main playable scene is called MainMenu, and the game should be run starting from this scene. Alternatively, you can publish as a build by going to <b>File > Build Settings.</b>
+Clone this repository and open it in Unity. If you are running the game from a Unity Project, ensure that the display settings are set to 1920x1080 (fixed resolution) so that the game runs as expected even on different screen sizes and the scenes are fully visible. The main playable scene is called MainMenu, and the game should be run starting from this scene. Alternatively, you can publish as a build by going to <b>File > Build Settings.</b>
 
 
 # Credits
