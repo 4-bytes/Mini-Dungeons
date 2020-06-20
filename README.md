@@ -1,7 +1,7 @@
 # About
 ![Title](https://github.com/4-bytes/Mini-Dungeons/blob/master/gifs/title.gif)
 
-MiniDungeons is a fast-paced and action-packed 2D arcade-style shooting game where the main objective is to adventure as deep into the dungeon as possible and progress through a variety of levels with varying complexity and challenges. The game features include a number of different playable characters, some are locked from the start of the game. There are also a wide variety of enemies that can be encountered, each has its own unique behaviours and characteristics. The rooms in a dungeon are procedurally generated, and these rooms may have enemies, traps or chests that can be interacted with. The further into the dungeon the player explores, the levels increase in difficulty. This game was inspired by Enter the Gungeon, The Binding of Isaac and Soul Knight.
+MiniDungeons is a fast-paced and action-packed 2D arcade-style shooting game where the main objective is to adventure as deep into the dungeon as possible and progress through a variety of levels with varying complexity and challenges. The gameplay features include a number of different playable characters, some that will be locked from the start. As the player progresses through the game, they will be able to unlock new characters to play as. There are also a wide variety of enemies that can be encountered, each has its own unique behaviours and characteristics. The rooms in a dungeon are procedurally generated, and these rooms may have enemies, traps or chests that can be interacted with. The further into the dungeon the player explores, the rooms increase in difficulty. This game was inspired by Enter the Gungeon, The Binding of Isaac and Soul Knight.
 
 
 # Screenshots
@@ -24,14 +24,14 @@ Clone this repository and open it in Unity. If you are running the game from a U
 # Credits
 Most of the assets that have been used to create this game are open-source and the links to them can be found below.
 
-Graphics/Art used: <br>
+Graphics: <br>
 https://tinyworlds.itch.io/free-pixel-font-thaleah <br>
 https://0x72.itch.io/16x16-dungeon-tileset <br>
 https://0x72.itch.io/dungeontileset-ii <br>
 https://lelex-game-and-art-maker.itch.io/fire-animated <br>
 https://hyohnoo.itch.io/keyboard-controller-keys <br>
 
-Audio used:<br>
+Audio:<br>
 http://mrjoshuamclean.com/royalty-free-music/ <br>
 https://opengameart.org/content/win-music-3 <br>
 https://opengameart.org/content/2-wooden-squish-splatter-sequences <br>
